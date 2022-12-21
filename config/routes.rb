@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   post 'create_offer', to: 'offers#create'
   get 'list_offers', to: 'offers#index'
   get 'get_offer', to: 'offers#show'
-  get 'close_offer', to: 'offers#close'
+  post 'close_offer', to: 'offers#close'
+  post 'create_bid', to: 'bids#create'
+  delete 'delete_bid', to: 'bids#delete'
 end

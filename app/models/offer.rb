@@ -3,9 +3,8 @@
 class Offer < ApplicationRecord
   has_secure_password
 
-  serialize :title
+  has_many :bids
 
-  validates :password, presence: true
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :price, presence: true, numericality: true
@@ -32,7 +31,9 @@ class Offer < ApplicationRecord
       id:,
       title:,
       description:,
-      price:
+      price:,
+      bids:,
+      open:
     }
   end
 end
