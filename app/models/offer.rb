@@ -18,14 +18,17 @@ class Offer < ApplicationRecord
     offer
   end
 
+  # Make sure price is rendered as Decimal
   def price
     format('%.2f', (price_in_cents / 100.0))
   end
 
+  # Make sure price is stored as Integer
   def price=(amount)
     self.price_in_cents = amount.to_f * 100
   end
 
+  # Don't render password etc.
   def as_json(_options = {})
     {
       id:,

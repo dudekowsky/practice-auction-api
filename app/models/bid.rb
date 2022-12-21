@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bid < ApplicationRecord
   has_secure_password
 
@@ -20,8 +22,8 @@ class Bid < ApplicationRecord
 
   def as_json(_options = {})
     { amount:,
-    buyer_name:,
-    id:,
-    offer_id: }
+      buyer_name:,
+      id:,
+      offer_id: }
   end
 end

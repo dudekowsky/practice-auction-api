@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BidsController < ApplicationController
   def create
     render json: Bid.create_from_params(create_params), status: :created
@@ -14,13 +16,12 @@ class BidsController < ApplicationController
     else
       head :unauthenticated
     end
-
   end
 
   private
 
   def create_params
-    params.require(:bid).permit(:offer_id, :buyer_name, :password, :amount)  
+    params.require(:bid).permit(:offer_id, :buyer_name, :password, :amount)
   end
 
   def delete_params

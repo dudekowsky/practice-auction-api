@@ -16,10 +16,10 @@ class OffersController < ApplicationController
 
   def close
     offer = Offer.find(close_params[:id])
-    if offer.authenticate(close_params[:password])
-      offer.update!(open: false)
-      render json: offer
-    end
+    return unless offer.authenticate(close_params[:password])
+
+    offer.update!(open: false)
+    render json: offer
   end
 
   private
@@ -27,7 +27,6 @@ class OffersController < ApplicationController
   def create_params
     params.require(:offer).permit(:title, :description, :password, :offer_price)
   end
-
 
   def close_params
     params.require(:offer).permit(:id, :password)

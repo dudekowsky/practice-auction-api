@@ -1,24 +1,25 @@
-# README
+# Basic Rails auction API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependencies
+* Ruby v3.1.2
 
-Things you may want to cover:
+## Get started
+```
+bundle
+bundle exec rails db:drop db:setup
+```
 
-* Ruby version
+## Run specs
+```
+bundle exec rspec
+```
 
-* System dependencies
+## How to play
+Start with `rails s`
 
-* Configuration
+Use curl requests as long as no frontend for this is build:
+```
+curl -X POST "localhost:3000/create_offer" -H "accept: */*" -H "Content-Type: application/json" -d '{"offer":{"title": "My Offer", "description":"My description", "offer_price": "123.45","password":"password"}}'
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+=> {"id":1,"title":"My Offer","description":"My description","price":"123.45","bids":[],"open":true}
+```
