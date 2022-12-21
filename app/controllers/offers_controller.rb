@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OffersController < ApplicationController
   def create
     offer = Offer.create_from_params(create_params)
@@ -12,9 +14,9 @@ class OffersController < ApplicationController
     render json: Offer.find_by!(params[:id])
   end
 
-  private 
+  private
 
   def create_params
-    params.require(:offer).permit(:title, :description, :password, :offer_price )
+    params.require(:offer).permit(:title, :description, :password, :offer_price)
   end
 end
